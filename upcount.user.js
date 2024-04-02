@@ -2,7 +2,7 @@
 // @name     UpCount!
 // @author Nesho
 // @Description Click that Upcount Button!
-// @version  2024.04.02
+// @version  2024.04.02.03
 // @grant    none
 // @match        https://www.reddit.com/r/Counter/
 // @match        https://new.reddit.com/r/Counter/
