@@ -2,7 +2,7 @@
 // @name     UpCount!
 // @author Nesho
 // @Description Click that Upcount Button!
-// @version  2024.04.02.04
+// @version  2024.04.02.05
 // @grant    none
 // @match        https://www.reddit.com/r/Counter/
 // @match        https://new.reddit.com/r/Counter/
@@ -20,6 +20,6 @@
         } else {
             document.querySelector("#t3_1bt8fw3 > div > shreddit-devvit-ui-loader").shadowRoot.querySelector("div > devvit-custom-post").shadowRoot.querySelector("div > devvit-blocks-renderer").shadowRoot.querySelector("div > div > div > button:nth-child(2)").click();
         }
-    }, 100);
+    }, 500);
 })();
 
