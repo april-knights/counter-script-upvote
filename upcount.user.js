@@ -15,7 +15,11 @@
     console.log("Starting Upvote agent!");
     setInterval(function() {
         console.log("Sending Request to Reddit");
-        document.querySelector("#t3_1bt8fw3 > div > shreddit-devvit-ui-loader").shadowRoot.querySelector("div > devvit-custom-post").shadowRoot.querySelector("div > devvit-blocks-renderer").shadowRoot.querySelector("div > div > div > button:nth-child(2)").click();
+        if(window.location.host == "new.reddit.com") {
+            document.querySelector("#t3_1bt8fw3 > div > shreddit-devvit-ui-loader").shadowRoot.querySelector("div > devvit-custom-post").shadowRoot.querySelector("div > devvit-blocks-renderer").shadowRoot.querySelector("div > div > div > button:nth-child(2)").click();
+        } else {
+            document.querySelector("#t3_1bt8fw3 > div > shreddit-devvit-ui-loader").shadowRoot.querySelector("div > devvit-custom-post").shadowRoot.querySelector("div > devvit-blocks-renderer").shadowRoot.querySelector("div > div > div > button:nth-child(2)").click();
+        }
     }, 100);
 })();
 
