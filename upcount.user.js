@@ -2,10 +2,12 @@
 // @name     UpCount!
 // @author Nesho
 // @Description Click that Upcount Button!
-// @version  2024.04.02.06
+// @version  2024.04.02.07
 // @grant    none
 // @match        https://www.reddit.com/r/Counter/
 // @match        https://new.reddit.com/r/Counter/
+// @match        https://new.reddit.com/r/Counter/comments/1bt8fw3/counter/
+// @match        https://www.reddit.com/r/Counter/comments/1bt8fw3/counter/
 // @icon         https://icons.duckduckgo.com/ip2/reddit.com.ico
 // @updateURL  https://github.com/april-knights/counter-script-upvote/raw/main/upcount.user.js
 // @downloadURL https://github.com/april-knights/counter-script-upvote/raw/main/upcount.user.js
