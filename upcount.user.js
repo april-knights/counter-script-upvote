@@ -4,8 +4,8 @@
 // @grant    none
 // @match        https://www.reddit.com/r/Counter/
 // @icon         https://icons.duckduckgo.com/ip2/reddit.com.ico
-// @updateURL 
-// @downloadURL
+// @updateURL  https://github.com/april-knights/counter-script-upvote/raw/main/upcount.user.js
+// @downloadURL https://github.com/april-knights/counter-script-upvote/raw/main/upcount.user.js
 // ==/UserScript==
 
 (function() {
