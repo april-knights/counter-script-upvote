@@ -2,7 +2,7 @@
 // @name     UpCount!
 // @author Nesho
 // @Description Click that Upcount Button!
-// @version  2024.04.02.08
+// @version  2024.04.02.09
 // @grant    none
 // @match        https://www.reddit.com/r/Counter/
 // @match        https://new.reddit.com/r/Counter/
@@ -17,10 +17,11 @@
 (function() {
     console.log("Starting Upvote agent!");
     setInterval(function() {
-        console.log("Sending Request to Reddit");
-        if(window.location.host == "new.reddit.com") {
-            document.querySelector("#t3_1bt8fw3 > div > shreddit-devvit-ui-loader").shadowRoot.querySelector("div > devvit-custom-post").shadowRoot.querySelector("div > devvit-blocks-renderer").shadowRoot.querySelector("div > div > div > button:nth-child(2)").click();
-        } else {
+         if(window.location.host == "new.reddit.com") {
+           // Fuck it...
+           window.location = "https://www.reddit.com/r/Counter/post-viewer/1bt8fw3/counter/?viewContext=desktopIframe"
+        }else {
+            console.log("Sending Request to Reddit");
             document.querySelector("#t3_1bt8fw3 > div > shreddit-devvit-ui-loader").shadowRoot.querySelector("div > devvit-custom-post").shadowRoot.querySelector("div > devvit-blocks-renderer").shadowRoot.querySelector("div > div > div > button:nth-child(2)").click();
         }
     }, 500);
