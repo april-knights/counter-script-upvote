@@ -1,0 +1,18 @@
+// ==UserScript==
+// @name     UpCount!
+// @version  2024.04.02
+// @grant    none
+// @match        https://www.reddit.com/r/Counter/
+// @icon         https://icons.duckduckgo.com/ip2/reddit.com.ico
+// @updateURL 
+// @downloadURL
+// ==/UserScript==
+
+(function() {
+    console.log("Starting Upvote agent!");
+    setInterval(function() {
+        console.log("Sending Request to Reddit");
+        document.querySelector("#t3_1bt8fw3 > div > shreddit-devvit-ui-loader").shadowRoot.querySelector("div > devvit-custom-post").shadowRoot.querySelector("div > devvit-blocks-renderer").shadowRoot.querySelector("div > div > div > button:nth-child(2)").click();
+    }, 1000);
+})();
+
