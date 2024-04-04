@@ -1,0 +1,28 @@
+{
+  "name": "UpCount!",
+  "version": "1.0.0",
+  "description": "Click that Upcount Button!",
+  "main": "src/main.ts",
+  "scripts": {
+    "build": "gorilla --input ./src/main.ts --output ./upcount.user.js"
+  },
+  "author": "Nesho & Daaniea",
+  "dependencies": {
+    "@types/greasemonkey": "^4.0.7"
+  },
+  "gorilla": {
+    "downloadURL": "https://github.com/april-knights/counter-script-upvote/raw/main/upcount.user.js",
+    "updateURL": "https://github.com/april-knights/counter-script-upvote/raw/main/upcount.user.js",
+    "match": [
+      "https://www.reddit.com/r/Counter/",
+      "https://new.reddit.com/r/Counter/",
+      "https://new.reddit.com/r/Counter/comments/1bt8fw3/counter/",
+      "https://www.reddit.com/r/Counter/comments/1bt8fw3/counter/",
+      "https://www.reddit.com/r/Counter/post-viewer/1bt8fw3/counter/?viewContext=desktopIframe"
+    ],
+    "grant": []
+  },
+  "devDependencies": {
+    "gorilla-build": "^0.1.16"
+  }
+}
