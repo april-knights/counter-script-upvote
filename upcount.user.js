@@ -1,7 +1,7 @@
 
 // ==UserScript==
 // @name			UpCount!
-// @version			v2024.04.16.1
+// @version			2024.04.16.1
 // @description		Click that Upcount Button!
 // @author			Nesho & Daaniea
 // @match			https://www.reddit.com/r/Counter/
