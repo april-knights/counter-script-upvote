@@ -9,19 +9,19 @@ export function getButton(button: ButtonType): HTMLButtonElement | undefined {
   switch (button) {
     case ButtonType.Upcount:
       return getCounterElement()?.shadowRoot?.querySelector(
-        "div > div > div > button:nth-child(2)"
+        "div > div > div button:nth-of-type(1)"
       ) as HTMLButtonElement | undefined;
     case ButtonType.Downcount:
       return getCounterElement()?.shadowRoot?.querySelector(
-        "div > div > div > button:nth-child(4)"
+        "div > div > div button:nth-of-type(4)"
       ) as HTMLButtonElement | undefined;
     case ButtonType.Leftcount:
       return getCounterElement()?.shadowRoot?.querySelector(
-        "div > div > div > div > button:nth-child(1)"
+        "div > div > div > div button:nth-of-type(2)"
       ) as HTMLButtonElement | undefined;
     case ButtonType.Rightcount:
       return getCounterElement()?.shadowRoot?.querySelector(
-        "div > div > div > div > button:nth-child(3)"
+        "div > div > div > div button:nth-of-type(3)"
       ) as HTMLButtonElement | undefined;
     default:
       return undefined;
@@ -37,8 +37,8 @@ export function getCounterElement(): Element | null | undefined {
 
 export function getCounterText(): string | undefined {
   return (
-    getCounterElement()?.shadowRoot?.querySelector("div > div > div > span") as
-      | HTMLElement
-      | undefined
+    getCounterElement()?.shadowRoot?.querySelector(
+      "div > div > div > span:nth-of-type(2)"
+    ) as HTMLElement | undefined
   )?.innerText;
 }

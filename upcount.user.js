@@ -30,13 +30,13 @@
   function getButton(button) {
       switch (button) {
           case ButtonType.Upcount:
-              return getCounterElement()?.shadowRoot?.querySelector("div > div > div > button:nth-child(2)");
+              return getCounterElement()?.shadowRoot?.querySelector("div > div > div button:nth-of-type(1)");
           case ButtonType.Downcount:
-              return getCounterElement()?.shadowRoot?.querySelector("div > div > div > button:nth-child(4)");
+              return getCounterElement()?.shadowRoot?.querySelector("div > div > div button:nth-of-type(4)");
           case ButtonType.Leftcount:
-              return getCounterElement()?.shadowRoot?.querySelector("div > div > div > div > button:nth-child(1)");
+              return getCounterElement()?.shadowRoot?.querySelector("div > div > div > div button:nth-of-type(2)");
           case ButtonType.Rightcount:
-              return getCounterElement()?.shadowRoot?.querySelector("div > div > div > div > button:nth-child(3)");
+              return getCounterElement()?.shadowRoot?.querySelector("div > div > div > div button:nth-of-type(3)");
           default:
               return undefined;
       }
@@ -48,7 +48,7 @@
           ?.shadowRoot?.querySelector("div > devvit-blocks-renderer");
   }
   function getCounterText() {
-      return getCounterElement()?.shadowRoot?.querySelector("div > div > div > span")?.innerText;
+      return getCounterElement()?.shadowRoot?.querySelector("div > div > div > span:nth-of-type(2)")?.innerText;
   }
 
   class Clicker {
@@ -58,7 +58,7 @@
       }
       start() {
           setInterval(() => {
-              const target = this.strategy.getTarget();
+              const target = this.strategy.getButton();
               console.log(`Pressing ${target} button`);
               const button = getButton(target);
               if (!button) {
@@ -109,13 +109,26 @@
           this.counter = counter;
           console.log("Using strategy: Up strategy");
       }
-      getTarget() {
+      getButton() {
           const location = this.counter.getLocation();
           // console.log("Current counter value:", location);
           return this.upStrategy(location);
       }
       upStrategy(_location) {
           return ButtonType.Upcount;
+      }
+      straightUpStrategy(location) {
+          if (!location)
+              return ButtonType.Upcount;
+          if (location.x > 200) {
+              return ButtonType.Leftcount;
+          }
+          else if (location.x < -200) {
+              return ButtonType.Rightcount;
+          }
+          else {
+              return ButtonType.Upcount;
+          }
       }
   }
 

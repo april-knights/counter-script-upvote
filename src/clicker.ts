@@ -7,7 +7,7 @@ export class Clicker {
 
   public start(): void {
     setInterval(() => {
-      const target = this.strategy.getTarget();
+      const target = this.strategy.getButton();
       console.log(`Pressing ${target} button`);
       const button = getButton(target);
       if (!button) {
