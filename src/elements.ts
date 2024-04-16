@@ -6,26 +6,22 @@ export enum ButtonType {
 }
 
 export function getButton(button: ButtonType): HTMLButtonElement | undefined {
-  switch (button) {
-    case ButtonType.Upcount:
-      return getCounterElement()?.shadowRoot?.querySelector(
-        "div > div > div button:nth-of-type(1)"
-      ) as HTMLButtonElement | undefined;
-    case ButtonType.Downcount:
-      return getCounterElement()?.shadowRoot?.querySelector(
-        "div > div > div button:nth-of-type(4)"
-      ) as HTMLButtonElement | undefined;
-    case ButtonType.Leftcount:
-      return getCounterElement()?.shadowRoot?.querySelector(
-        "div > div > div > div button:nth-of-type(2)"
-      ) as HTMLButtonElement | undefined;
-    case ButtonType.Rightcount:
-      return getCounterElement()?.shadowRoot?.querySelector(
-        "div > div > div > div button:nth-of-type(3)"
-      ) as HTMLButtonElement | undefined;
-    default:
-      return undefined;
+  return searchForButton(getCounterElement()?.shadowRoot, button);
+}
+
+function searchForButton(
+  root: ShadowRoot | null | undefined,
+  button: ButtonType
+): HTMLButtonElement | undefined {
+  if (!root) return undefined;
+  const buttons = root.querySelectorAll("button");
+  for (let i = 0; i < buttons.length; i++) {
+    const buttonText = buttons[i].textContent?.trim();
+    if (buttonText === ButtonType[button]) {
+      return buttons[i] as HTMLButtonElement;
+    }
   }
+  return undefined;
 }
 
 export function getCounterElement(): Element | null | undefined {

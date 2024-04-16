@@ -28,18 +28,19 @@
       ButtonType["Leftcount"] = "Leftcount";
   })(ButtonType || (ButtonType = {}));
   function getButton(button) {
-      switch (button) {
-          case ButtonType.Upcount:
-              return getCounterElement()?.shadowRoot?.querySelector("div > div > div button:nth-of-type(1)");
-          case ButtonType.Downcount:
-              return getCounterElement()?.shadowRoot?.querySelector("div > div > div button:nth-of-type(4)");
-          case ButtonType.Leftcount:
-              return getCounterElement()?.shadowRoot?.querySelector("div > div > div > div button:nth-of-type(2)");
-          case ButtonType.Rightcount:
-              return getCounterElement()?.shadowRoot?.querySelector("div > div > div > div button:nth-of-type(3)");
-          default:
-              return undefined;
+      return searchForButton(getCounterElement()?.shadowRoot, button);
+  }
+  function searchForButton(root, button) {
+      if (!root)
+          return undefined;
+      const buttons = root.querySelectorAll("button");
+      for (let i = 0; i < buttons.length; i++) {
+          const buttonText = buttons[i].textContent?.trim();
+          if (buttonText === ButtonType[button]) {
+              return buttons[i];
+          }
       }
+      return undefined;
   }
   function getCounterElement() {
       return document
